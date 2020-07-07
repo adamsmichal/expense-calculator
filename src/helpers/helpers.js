@@ -1,12 +1,12 @@
 import { jsonDateParser } from "json-date-parser";
 import { appointments } from "../store/monthAppointments";
 
-export const remCalc = (px: number) => {
+export const remCalc = (px) => {
   return `${px / 16}rem`;
 };
-export const emCalc = (px: number) => `${px / 16}em`;
+export const emCalc = (px) => `${px / 16}em`;
 
-export const getMonthName = (month: number) => {
+export const getMonthName = (month) => {
   const months = [
     "January",
     "Febuary",
@@ -44,21 +44,18 @@ export const monthlySummary = () => {
     const currentMonth = months[idx - 1];
 
     const data = localStorage.getItem("scheduler-unique")
-      ? JSON.parse(localStorage.getItem("scheduler-unique")!, jsonDateParser)
+      ? JSON.parse(localStorage.getItem("scheduler-unique"), jsonDateParser)
       : appointments;
 
     const summary = data
       .filter(
-        (item: any) =>
+        (item) =>
           (String(item.rRule).includes("FREQ=MONTHLY") &&
             currentMonth >= item.startDate.getMonth()) ||
           item.startDate.getMonth() === currentMonth
       )
-      .map((item: any) => item.payment)
-      .reduce(
-        (prevent: string, current: string) => Number(prevent) + Number(current),
-        0
-      );
+      .map((item) => item.payment)
+      .reduce((prevent, current) => Number(prevent) + Number(current), 0);
 
     chart.push({ month: getMonthName(currentMonth), summary });
   } while (idx < 7);

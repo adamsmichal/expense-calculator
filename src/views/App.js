@@ -7,7 +7,7 @@ import { AppTemplate } from "../templates/AppTemplate";
 import { ExpensesPage } from "./ExpensesPage";
 import SchedulerPage from "./SchedulerPage";
 
-export const App: React.FC = () => {
+export const App = () => {
   return (
     <HashRouter>
       <Nav />

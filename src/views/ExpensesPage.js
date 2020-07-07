@@ -14,7 +14,7 @@ const Bar = styled(BarSeries)({
   fill: "#53d6fa",
 });
 
-export const ExpensesPage: React.FC = () => {
+export const ExpensesPage = () => {
   const [data, setData] = useState([{}]);
 
   useEffect(() => {

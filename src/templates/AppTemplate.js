@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   }
 `;
 
-export const AppTemplate: React.FC = ({ children }) => {
+export const AppTemplate = ({ children }) => {
   return (
     <>
       <Wrapper>{children}</Wrapper>
