@@ -112,7 +112,7 @@ class SchedulerPage extends Component {
     }
   }
 
-  componentDidUpdate(_, prevState) {
+  componentDidUpdate(prevState) {
     const { data } = this.state;
     if (prevState.data !== data) {
       localStorage.setItem("scheduler-unique", JSON.stringify(data));
